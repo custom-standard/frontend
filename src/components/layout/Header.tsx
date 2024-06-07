@@ -1,72 +1,45 @@
 import React from "react";
 import CustomButton from "../button/CustomButton";
-import {
-  AlertIcon,
-  Avatar,
-  Box,
-  Flex,
-  Icon,
-  Image,
-  List,
-  Text,
-} from "@chakra-ui/react";
 import logo from "../../assets/image/logo.png";
 import { useNavigate } from "react-router-dom";
-import { BellIcon, ChatIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
 import Profile from "../user/Profile";
+import { FaBell } from "react-icons/fa";
 
 export default function Header() {
   const navigate = useNavigate();
 
+  const user = {
+    uuid: "test UUID",
+    provider: "KAKAO",
+    email: "test@email.com",
+    name: "테스트",
+  };
+
   return (
-    <Flex
-      top="0"
-      width="100%"
-      position="sticky"
-      boxShadow="0px 0px 20px 0px rgba(0, 0, 0, 0.2)"
-      backgroundColor="white"
-      py={4}
-      justifyContent="center"
-    >
-      <Flex
-        width="100%"
-        maxWidth="1200px"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Flex alignItems="center" gap={10}>
-          <Image
+    <div className="flex top-0 w-full sticky drop-shadow px-10 py-4 bg-white justify-center">
+      <div className="flex w-full max-w-7xl justify-between items-center">
+        <div className="flex items-center gap-10">
+          <img
             src={logo}
             alt="logo"
-            h="54px"
             onClick={() => navigate("/")}
-            _hover={{
-              cursor: "pointer",
-            }}
+            className="h-14 pointer-events-auto"
           />
-          <Flex gap={6}>
+          <div className="flex gap-6">
             <Link to={"/"}>작품</Link>
             <Link to={"/"}>리퀘스트</Link>
             <Link to={"/"}>아티스트</Link>
-          </Flex>
-        </Flex>
-        <Flex alignItems="center" gap={2}>
-          <Profile size="sm" username="김민형" />
-          <Flex alignItems="center">
-            <BellIcon boxSize={8} color="primary.600" />
-            {/* TODO: 새로운 알람 표시 */}
-            <Box
-              boxSize="10px"
-              position="relative"
-              right="14px"
-              top="-4px"
-              borderRadius="50%"
-              backgroundColor="red.500"
-            />
-          </Flex>
-        </Flex>
-      </Flex>
-    </Flex>
+          </div>
+        </div>
+        <div className="flex itmes-center gap-2">
+          <Profile size="sm" user={user} />
+          <div className="flex items-center">
+            <FaBell />
+            <div className="relative right-3.5 top-0 rounded-md bg-red-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
