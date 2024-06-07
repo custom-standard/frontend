@@ -2,27 +2,28 @@ import "./App.css";
 import { Outlet, Route, Routes } from "react-router-dom";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import { Box, Flex } from "@chakra-ui/react";
+import MainPage from "./pages/MainPage";
 
 function App() {
   const Layout = () => {
     return (
-      <Box width="100%" maxWidth="1200px">
+      <div className="flex flex-col w-full items-center min-h-screen">
         <Header />
         <Outlet />
         <Footer />
-      </Box>
+      </div>
     );
   };
 
   return (
-    <Flex alignItems="center" flexDir="column">
+    <div className="flex items-center flex-col">
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<MainPage />} />
           {/* <Route /> */}
         </Route>
       </Routes>
-    </Flex>
+    </div>
   );
 }
 
