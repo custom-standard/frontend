@@ -1,19 +1,28 @@
-import { Avatar, Flex, Text } from "@chakra-ui/react";
 import React from "react";
+import { User } from "../../types/User";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 interface Props {
-  size: string;
-  username: string;
-  profileImg?: string;
+  size: "sm" | "md" | "lg";
+  user: User;
 }
 
-export default function Profile({ size, username, profileImg }: Props) {
+export default function Profile({ size, user }: Props) {
+  var wh = {
+    sm: "w-6 h-6",
+    md: "w-8 h-8",
+    lg: "w-10 h-10",
+  };
+
   return (
-    <Flex alignItems="center" gap={2}>
-      <Avatar size={size} name={username} src={profileImg} />
-      <Flex gap={1} fontSize={size}>
-        <Text as="b">{username}</Text>님
-      </Flex>
-    </Flex>
+    <div className="flex items-center gap-2">
+      <Avatar className={`${wh[size]}`}>
+        <AvatarImage src={user.profileImageUrl} />
+        <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
+      </Avatar>
+      <div className={`flex gap-1 text-${size}`}>
+        <p className="flex font-bold">{user.name}</p>님
+      </div>
+    </div>
   );
 }
