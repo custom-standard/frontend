@@ -7,6 +7,7 @@ export interface Post {
   category: Category;
   type: string;
   title: string;
+  thumbnail?: string;
   dates: Date[];
   delivery: boolean;
   place?: string;
