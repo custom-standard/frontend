@@ -17,11 +17,23 @@ export default function ArtistCard({ user }: Props) {
   };
 
   return (
-    <Card>
+    <Card className="h-[260px] flex flex-col">
       <CardHeader className="pb-3">
         <Profile size="lg" user={user} />
       </CardHeader>
-      <CardContent>{user.description}</CardContent>
+      <CardContent className="flex-grow overflow-hidden">
+        <div
+          style={{
+            display: "-webkit-box",
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            WebkitLineClamp: 4,
+          }}
+        >
+          {user.description}
+        </div>
+      </CardContent>
       <CardFooter>
         <Button
           onClick={onClickButton}
@@ -33,5 +45,4 @@ export default function ArtistCard({ user }: Props) {
       </CardFooter>
     </Card>
   );
-  return <div>ArtistCard</div>;
 }

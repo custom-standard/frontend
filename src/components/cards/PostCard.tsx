@@ -11,11 +11,15 @@ interface Props {
 
 export default function PostCard({ post }: Props) {
   return (
-    <Card>
-      <CardHeader>
-        <img src={post.thumbnail ? post.thumbnail : logo} alt="thumbnail" />
+    <Card className="h-[260px] flex flex-col">
+      <CardHeader className="flex-grow p-3">
+        <img
+          className="w-full h-full object-cover"
+          src={post.thumbnail ? post.thumbnail : logo}
+          alt="thumbnail"
+        />
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-3 py-4">
         <div className="flex gap-2 mb-2">
           <CategoryBadge category={post.category} />
           <CardTitle className="text-md">{post.title}</CardTitle>
