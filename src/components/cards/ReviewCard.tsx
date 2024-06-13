@@ -9,7 +9,7 @@ interface Props {
 
 export default function ReviewCard({ review }: Props) {
   return (
-    <Card className="h-[240px] w-[256px]" style={{ boxShadow: "none" }}>
+    <Card className="h-[240px]" style={{ boxShadow: "none" }}>
       <CardContent className="p-4">
         {review.images.length != 0 ? (
           <div className="flex flex-col gap-2">
