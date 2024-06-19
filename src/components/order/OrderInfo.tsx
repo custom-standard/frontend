@@ -42,7 +42,7 @@ export default function OrderInfo({ order }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 text-md">
       <IconText
         iconColor={iconColor}
         textColor={textColor}
@@ -66,7 +66,7 @@ export default function OrderInfo({ order }: Props) {
         textBold={order.price.toLocaleString()}
         text="원"
       />
-      <div className="flex justify-between">
+      <div className="flex justify-between gap-4">
         <IconText
           iconColor={iconColor}
           textColor={textColor}

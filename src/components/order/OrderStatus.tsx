@@ -13,7 +13,11 @@ export default function OrderStatus({ level }: Props) {
       {status.map((s, index) => (
         <React.Fragment key={index}>
           <div className="flex flex-col items-center gap-1">
-            <p className="text-xs">{status[index]}</p>
+            {index == level ? (
+              <p className="text-xs">{status[index]}</p>
+            ) : (
+              <p className="text-xs text-black/75">{status[index]}</p>
+            )}
             <div
               className={`w-6 h-6 rounded-full border-8 z-10 ${
                 level > index ? "border-red-400" : "border-red-200"

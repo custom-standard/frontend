@@ -24,11 +24,11 @@ export default function IconText({
         {textBold && event ? (
           <span
             style={{ color: textColor }}
-            className="font-bold hover:cursor-pointer"
+            className="font-semibold hover:cursor-pointer"
             onClick={event}
           >
             {textBold}
-            {text && <span className="font-normal">{text}</span>}
+            {text && <span className="font-light">{text}</span>}
           </span>
         ) : (
           <span
@@ -37,7 +37,7 @@ export default function IconText({
             onClick={event}
           >
             {textBold}
-            {text && <span className="font-normal">{text}</span>}
+            {text && <span className="font-light">{text}</span>}
           </span>
         )}
       </div>
