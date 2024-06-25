@@ -1,4 +1,5 @@
-import { Date } from "./Date";
+import { DateTime } from "./DateTime";
+import { OrderStatus } from "./OrderStatus";
 import { Post } from "./Post";
 import { User } from "./User";
 
@@ -8,7 +9,8 @@ export interface Order {
   requester: User;
   responder: User;
   price: number;
-  date: Date;
+  date: DateTime;
   // TODO: 상태 업데이트
-  status: string;
+  status: OrderStatus;
+  isRequest: boolean;
 }

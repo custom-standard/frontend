@@ -1,5 +1,5 @@
 import { Category } from "./Category";
-import { Date } from "./Date";
+import { DateTime } from "./DateTime";
 import { User } from "./User";
 
 export interface Post {
@@ -8,7 +8,7 @@ export interface Post {
   type: string;
   title: string;
   thumbnail?: string;
-  dates: Date[];
+  dates: DateTime[];
   delivery: boolean;
   place?: string;
   minPrice: number;
