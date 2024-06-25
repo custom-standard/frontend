@@ -27,12 +27,12 @@ export default function Profile({ size, user }: Props) {
         <AvatarImage src={user.profileImageUrl} />
         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
       </Avatar>
-      <div className={`flex gap-1 text-${size}`}>
-        <p className="flex font-bold cursor-pointer" onClick={onClickProfile}>
-          {user.name}
-        </p>
+      <p className={`text-${size}`}>
+        <b className="cursor-pointer" onClick={onClickProfile}>
+          {user.name}{" "}
+        </b>
         님
-      </div>
+      </p>
     </div>
   );
 }
