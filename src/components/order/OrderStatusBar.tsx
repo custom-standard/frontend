@@ -10,7 +10,7 @@ export default function OrderStatusBar({ status }: Props) {
   const statuses = ["요청중", "조정중", "진행중", "완료됨"];
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between w-full">
       {statuses.map((s, index) => (
         <React.Fragment key={index}>
           <div className="flex flex-col items-center gap-1">
