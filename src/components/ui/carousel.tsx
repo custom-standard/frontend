@@ -282,7 +282,9 @@ const CarouselDots = React.forwardRef<
           key={index}
           className={cn(
             "h-3 w-3 rounded-full p-0",
-            index === selected ? "bg-stone-500" : "bg-stone-300"
+            index === selected
+              ? "bg-stone-500 hover:bg-stone-500"
+              : "bg-stone-300 hover:bg-stone-300"
           )}
           onClick={() => jumpTo(index)}
         />
