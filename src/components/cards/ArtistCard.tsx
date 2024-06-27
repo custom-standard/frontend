@@ -19,7 +19,7 @@ export default function ArtistCard({ user }: Props) {
   return (
     <Card className="h-[260px] flex flex-col">
       <CardHeader className="pb-3">
-        <Profile size="lg" user={user} />
+        <Profile size="lg" user={user} link={true} />
       </CardHeader>
       <CardContent className="flex-grow overflow-hidden">
         <div

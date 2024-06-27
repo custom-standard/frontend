@@ -30,7 +30,7 @@ export default function ReviewCard({ review }: Props) {
                 ))}
               </div>
             </div>
-            <Profile size="sm" user={review.writer} />
+            <Profile size="sm" user={review.writer} link={true} />
             <div
               className="text-sm text-neutral-600"
               style={{
@@ -47,7 +47,7 @@ export default function ReviewCard({ review }: Props) {
         ) : (
           <div className="flex gap-8">
             <div className="flex flex-col flex-grow gap-3">
-              <Profile size="sm" user={review.writer} />
+              <Profile size="sm" user={review.writer} link={true} />
               <div
                 className="text-sm text-neutral-600"
                 style={{

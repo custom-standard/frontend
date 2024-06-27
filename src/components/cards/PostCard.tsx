@@ -24,7 +24,7 @@ export default function PostCard({ post }: Props) {
           <CategoryBadge category={post.category} />
           <CardTitle className="text-md">{post.title}</CardTitle>
         </div>
-        <Profile size="sm" user={post.writer} />
+        <Profile size="sm" user={post.writer} link={true} />
       </CardContent>
     </Card>
   );

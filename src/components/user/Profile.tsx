@@ -6,9 +6,10 @@ import { useNavigate } from "react-router-dom";
 interface Props {
   size: "sm" | "md" | "lg";
   user: BaseUser;
+  link: boolean;
 }
 
-export default function Profile({ size, user }: Props) {
+export default function Profile({ size, user, link }: Props) {
   const navigate = useNavigate();
 
   const wh = {
@@ -18,7 +19,7 @@ export default function Profile({ size, user }: Props) {
   };
 
   const onClickProfile = () => {
-    navigate(`${user.uuid}`);
+    link && navigate(`${user.uuid}`);
   };
 
   return (

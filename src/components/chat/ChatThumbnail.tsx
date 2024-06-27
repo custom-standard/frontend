@@ -38,7 +38,7 @@ export default function ChatThumbnail({ chat }: Props) {
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center pt-1">
-        <Profile size="md" user={chat.other} />
+        <Profile size="md" user={chat.other} link={false} />
         <p className="text-sm text-black/50">{toFormattedDate(chat.time)}</p>
       </div>
       <p className="p-2">{chat.message}</p>
