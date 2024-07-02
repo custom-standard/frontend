@@ -1,7 +1,6 @@
 import React from "react";
 import OrderStatusBar from "./OrderStatusBar";
 import { Order } from "../../types/Order";
-import Profile from "../user/Profile";
 
 interface Props {
   order: Order;

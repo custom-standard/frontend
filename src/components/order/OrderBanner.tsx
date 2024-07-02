@@ -25,8 +25,8 @@ export default function OrderBanner() {
           }}
         >
           <CarouselContent>
-            {orders.map((order) => (
-              <CarouselItem className="mb-4">
+            {orders.map((order, index) => (
+              <CarouselItem className="mb-4" key={index}>
                 <OrderBannerItem order={order} />
               </CarouselItem>
             ))}
