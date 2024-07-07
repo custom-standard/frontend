@@ -1,10 +1,33 @@
+import { Category } from "./types/Category";
+import { Chat } from "./types/Chat";
 import { DateTime } from "./types/DateTime";
+import {
+  ChatNotification,
+  OrderNotification,
+  ProposeNotification,
+  ReviewNotification,
+} from "./types/Notification";
+import { Order } from "./types/Order";
+import { OrderStatus } from "./types/OrderStatus";
+import { Post } from "./types/Post";
+import { Propose } from "./types/Propose";
+import { Review } from "./types/Review";
+import { User, UserArtist } from "./types/User";
 
-const sampleUser = {
+const sampleUser: User = {
   uuid: "test UUID",
   provider: "KAKAO",
   email: "test@email.com",
   name: "테스트",
+  profileImageUrl:
+    "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
+};
+
+const sampleUser2: User = {
+  uuid: "test UUID2",
+  provider: "NAVER",
+  email: "test2@email.com",
+  name: "테스트2",
   profileImageUrl:
     "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
 };
@@ -14,7 +37,7 @@ const sampleDate: DateTime = {
   time: new Date("2024-06-18T14:00:00+09:00"),
 };
 
-const sampleArtist = {
+const sampleArtist: UserArtist = {
   uuid: "test UUID",
   name: "테스트",
   description:
@@ -23,13 +46,13 @@ const sampleArtist = {
     "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
 };
 
-const sampleCategory = {
+const sampleCategory: Category = {
   categoryId: 1,
   name: "식품",
   description: "음식 관련 카테고리",
 };
 
-const samplePost = {
+const samplePost: Post = {
   postId: 1,
   category: sampleCategory,
   type: "구매",
@@ -42,12 +65,12 @@ const samplePost = {
   writer: sampleUser,
 };
 
-const sampleStatus = {
+const sampleStatus: OrderStatus = {
   index: 1,
   description: "준비중",
 };
 
-const sampleOrder = {
+const sampleOrder: Order = {
   orderId: 1,
   post: samplePost,
   requester: sampleUser,
@@ -58,9 +81,9 @@ const sampleOrder = {
   isRequest: true,
 };
 
-const sampleOrders = [sampleOrder, sampleOrder, sampleOrder];
+const sampleOrders: Order[] = [sampleOrder, sampleOrder, sampleOrder];
 
-const sampleReview = {
+const sampleReview: Review = {
   reviewId: 1,
   order: sampleOrder,
   writer: sampleUser,
@@ -72,12 +95,53 @@ const sampleReview = {
   ],
 };
 
-const sampleChat = {
+const sampleChat: Chat = {
   other: sampleUser,
   message: "hello",
   time: new Date("2024-06-14T14:00:00+09:00"),
   read: true,
 };
+
+const date = new Date();
+
+const samplePropose: Propose = {
+  sender: sampleUser,
+  receiver: sampleUser2,
+  order: sampleOrder,
+};
+
+const sampleOrderNotification: OrderNotification = {
+  type: "order",
+  order: sampleOrder,
+  orderStatus: sampleStatus,
+  time: date,
+};
+
+const sampleProposeNotification: ProposeNotification = {
+  type: "propose",
+  order: sampleOrder,
+  propose: samplePropose,
+  sender: sampleUser,
+  time: date,
+};
+
+const sampleReviewNotification: ReviewNotification = {
+  type: "review",
+  review: sampleReview,
+  time: date,
+};
+
+const sampleChatNotification: ChatNotification = {
+  type: "chat",
+  chat: sampleChat,
+};
+
+const sampleNotifications = [
+  sampleOrderNotification,
+  sampleProposeNotification,
+  sampleReviewNotification,
+  sampleChatNotification,
+];
 
 export {
   sampleUser,
@@ -90,4 +154,5 @@ export {
   sampleOrders,
   sampleReview,
   sampleChat,
+  sampleNotifications,
 };
