@@ -7,7 +7,7 @@ export interface Post {
   category: Category;
   type: string;
   title: string;
-  thumbnail?: string;
+  image?: string[];
   dates: DateTime[];
   delivery: boolean;
   place?: string;
