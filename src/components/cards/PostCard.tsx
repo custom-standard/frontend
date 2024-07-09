@@ -15,7 +15,7 @@ export default function PostCard({ post }: Props) {
       <CardHeader className="flex-grow p-3 overflow-hidden">
         <img
           className="w-full h-full object-cover"
-          src={post.thumbnail ? post.thumbnail : logo}
+          src={post.image && post.image.length !== 0 ? post.image[0] : logo}
           alt="thumbnail"
         />
       </CardHeader>
