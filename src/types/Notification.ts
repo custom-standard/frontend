@@ -30,6 +30,7 @@ export interface ReviewNotification {
 export interface ChatNotification {
   type: "chat";
   chat: Chat;
+  time: Date;
 }
 
 function isOrderNotification(

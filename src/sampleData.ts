@@ -134,6 +134,7 @@ const sampleReviewNotification: ReviewNotification = {
 const sampleChatNotification: ChatNotification = {
   type: "chat",
   chat: sampleChat,
+  time: date,
 };
 
 const sampleNotifications = [
