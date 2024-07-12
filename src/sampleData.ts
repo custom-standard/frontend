@@ -14,13 +14,15 @@ import { Propose } from "./types/Propose";
 import { Review } from "./types/Review";
 import { User, UserArtist } from "./types/User";
 
+const sampleImage =
+  "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312";
+
 const sampleUser: User = {
   uuid: "test UUID",
   provider: "KAKAO",
   email: "test@email.com",
   name: "테스트",
-  profileImageUrl:
-    "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
+  profileImageUrl: sampleImage,
 };
 
 const sampleUser2: User = {
@@ -28,8 +30,7 @@ const sampleUser2: User = {
   provider: "NAVER",
   email: "test2@email.com",
   name: "테스트2",
-  profileImageUrl:
-    "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
+  profileImageUrl: sampleImage,
 };
 
 const sampleDate: DateTime = {
@@ -42,8 +43,7 @@ const sampleArtist: UserArtist = {
   name: "테스트",
   description:
     "커스텀 케이크를 판매합니다! 캐릭터 커스텀 케이크, 레터링 커스텀 케이크를 주로 판매합니다. 더 길게 더 길게 더 길게 더 길게 더 길게 더 길게",
-  profileImageUrl:
-    "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312",
+  profileImageUrl: sampleImage,
 };
 
 const sampleCategory: Category = {
@@ -56,8 +56,8 @@ const samplePost: Post = {
   postId: 1,
   category: sampleCategory,
   type: "구매",
-  title: "테스트 제목",
-  image: [],
+  title: "테스트 구매 제목",
+  image: [sampleImage],
   dates: [sampleDate],
   delivery: false,
   minPrice: 30000,
