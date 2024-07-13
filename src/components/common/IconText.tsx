@@ -24,7 +24,7 @@ export default function IconText({
         {textBold && event ? (
           <span
             style={{ color: textColor }}
-            className="font-semibold hover:cursor-pointer"
+            className="font-medium hover:cursor-pointer"
             onClick={event}
           >
             {textBold}
@@ -33,7 +33,7 @@ export default function IconText({
         ) : (
           <span
             style={{ color: textColor }}
-            className="font-bold"
+            className="font-medium"
             onClick={event}
           >
             {textBold}

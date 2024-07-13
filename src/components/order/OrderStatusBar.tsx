@@ -14,10 +14,10 @@ export default function OrderStatusBar({ status }: Props) {
       {statuses.map((s, index) => (
         <React.Fragment key={index}>
           <div className="flex flex-col items-center gap-1">
-            {index === status.index ? (
+            {index === status.index - 1 ? (
               <p className="text-xs">{statuses[index]}</p>
             ) : (
-              <p className="text-xs text-black/75">{statuses[index]}</p>
+              <p className="text-xs text-black/60">{statuses[index]}</p>
             )}
             <div
               className={`w-6 h-6 rounded-full border-8 z-10 ${

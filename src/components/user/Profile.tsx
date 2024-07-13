@@ -29,7 +29,7 @@ export default function Profile({ size, user, link }: Props) {
         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
       </Avatar>
       <p className={`text-${size}`}>
-        <b className="cursor-pointer" onClick={onClickProfile}>
+        <b className="cursor-pointer font-semibold" onClick={onClickProfile}>
           {user.name}{" "}
         </b>
         님

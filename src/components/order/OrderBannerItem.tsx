@@ -35,10 +35,13 @@ export default function OrderBannerItem({ order }: Props) {
         ) : (
           <>
             <div className="text-lg text-center py-6">
-              <b>{order.post.title}</b>에 대한 상품 제작이
+              <b className="font-semibold">{order.post.title}</b>에 대한 상품
+              제작이
               <br />
-              <b className="text-red-600/75">{order.status.description}</b>에
-              있습니다.
+              <b className="font-semibold text-red-600/75">
+                {order.status.description}
+              </b>
+              에 있습니다.
             </div>
             <div className="flex gap-2">
               <button className="text-white text-sm bg-red-700/60 px-4 py-2 rounded-[6px] hover:bg-red-700/65 transition-all">

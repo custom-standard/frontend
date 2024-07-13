@@ -5,7 +5,7 @@ import ProfileMenuItem from "./ProfileMenuItem";
 
 export default function ProfileMenu() {
   return (
-    <div className="absolute top-[4.5em] right-[50px] flex flex-col w-[260px] rounded-[6px] bg-white border border-stone-300 shadow-xl">
+    <div className="absolute top-[4.5em] right-[50px] flex flex-col w-[260px] bg-white border border-stone-300 shadow-sm">
       <ProfileMenuItem icon={<FaUserCircle />} text="내 정보" line={true} />
       <ProfileMenuItem
         icon={<FaEnvelopeOpenText />}
