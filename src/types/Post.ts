@@ -15,3 +15,12 @@ export interface Post {
   maxPrice: number;
   writer: User;
 }
+
+export interface SimplePost {
+  postId: number;
+  category: Category;
+  type: string;
+  title: string;
+  image?: string;
+  writer: User;
+}

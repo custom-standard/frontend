@@ -9,15 +9,12 @@ import { User } from "./User";
 export interface OrderNotification {
   type: "order";
   order: Order;
-  orderStatus: OrderStatus;
   time: Date;
 }
 
 export interface ProposeNotification {
   type: "propose";
-  order: Order;
   propose: Propose;
-  sender: User;
   time: Date;
 }
 

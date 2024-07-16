@@ -1,9 +1,9 @@
-import { Order } from "./Order";
+import { Order, SimpleOrder } from "./Order";
 import { User } from "./User";
 
 export interface Review {
   reviewId: number;
-  order: Order;
+  order: SimpleOrder;
   writer: User;
   rating: number;
   description: string;

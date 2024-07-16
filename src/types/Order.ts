@@ -1,16 +1,24 @@
 import { DateTime } from "./DateTime";
 import { OrderStatus } from "./OrderStatus";
-import { Post } from "./Post";
+import { Post, SimplePost } from "./Post";
 import { User } from "./User";
 
 export interface Order {
   orderId: number;
-  post: Post;
+  post: SimplePost;
   requester: User;
   responder: User;
   price: number;
   date: DateTime;
   // TODO: 상태 업데이트
   status: OrderStatus;
+  isRequest: boolean;
+}
+
+export interface SimpleOrder {
+  orderId: number;
+  post: SimplePost;
+  requester: User;
+  responder: User;
   isRequest: boolean;
 }
