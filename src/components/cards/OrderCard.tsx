@@ -25,9 +25,11 @@ export default function OrderCard() {
           <ChatThumbnail chat={sampleChat} />
         </div>
       </div>
-      <button className="h-8 text-sm text-white bg-red-700/50 px-2 py-1 rounded-[8px]">
-        진행 상황 업데이트
-      </button>
+      <div>
+        <button className="text-sm text-white bg-red-700/50 px-2 py-2 rounded-[8px]">
+          진행 상황 업데이트
+        </button>
+      </div>
     </div>
   );
 }
