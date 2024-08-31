@@ -161,6 +161,14 @@ const sampleNotifications = [
   sampleChatNotification,
 ];
 
+const sampleDates = [
+  new Date("2024-09-01T00:00:00"),
+  new Date("2024-09-04T00:00:00"),
+  new Date("2024-09-05T00:00:00"),
+  new Date("2024-09-07T00:00:00"),
+  new Date("2024-10-01T00:00:00"),
+];
+
 export {
   sampleUser,
   sampleDate,
@@ -173,4 +181,5 @@ export {
   sampleReview,
   sampleChat,
   sampleNotifications,
+  sampleDates,
 };
