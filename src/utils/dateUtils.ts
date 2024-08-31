@@ -25,3 +25,8 @@ export const toFormattedDate = (date: Date) => {
     return `${diffInYears}년 전`;
   }
 };
+
+export const getAvailableMonth = (days: Date[]) => {
+  if (days.length === 0) return undefined;
+  return new Date(Math.min(...days.map((date) => date.getTime())));
+};
