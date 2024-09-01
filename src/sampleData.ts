@@ -1,3 +1,4 @@
+import { randomUUID } from "crypto";
 import { Category } from "./types/Category";
 import { Chat } from "./types/Chat";
 import { DateTime } from "./types/DateTime";
@@ -10,24 +11,28 @@ import {
 import { Order, SimpleOrder } from "./types/Order";
 import { OrderStatus } from "./types/OrderStatus";
 import { Post, SimplePost } from "./types/Post";
-import { Propose } from "./types/Propose";
+import { Proposal } from "./types/Proposal";
 import { Review } from "./types/Review";
-import { User, UserArtist } from "./types/User";
+import { User } from "./types/User";
 
 const sampleImage =
   "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312";
 
+const sampleFile = {
+  fileUrl: sampleImage,
+  fileName: "고양이",
+  fileType: "png",
+};
+
 const sampleUser: User = {
-  uuid: "test UUID",
-  provider: "KAKAO",
+  userUUID: "TEST UUID",
   email: "test@email.com",
   name: "테스트",
   profileImageUrl: sampleImage,
 };
 
 const sampleUser2: User = {
-  uuid: "test UUID2",
-  provider: "NAVER",
+  userUUID: "TEST UUID2",
   email: "test2@email.com",
   name: "테스트2",
   profileImageUrl: sampleImage,
@@ -38,11 +43,10 @@ const sampleDate: DateTime = {
   time: new Date("2024-06-18T14:00:00+09:00"),
 };
 
-const sampleArtist: UserArtist = {
-  uuid: "test UUID",
-  name: "테스트",
-  description:
-    "커스텀 케이크를 판매합니다! 캐릭터 커스텀 케이크, 레터링 커스텀 케이크를 주로 판매합니다. 더 길게 더 길게 더 길게 더 길게 더 길게 더 길게",
+const sampleArtist: User = {
+  userUUID: "TEST UUID3",
+  email: "artist@email.com",
+  name: "아티스트",
   profileImageUrl: sampleImage,
 };
 
@@ -57,7 +61,7 @@ const samplePost: Post = {
   category: sampleCategory,
   type: "구매",
   title: "테스트 구매 제목",
-  image: [sampleImage],
+  thumbnail: sampleFile,
   dates: [sampleDate],
   delivery: false,
   minPrice: 30000,
@@ -70,7 +74,7 @@ const sampleSimplePost: SimplePost = {
   category: sampleCategory,
   type: "구매",
   title: "테스트 구매 제목",
-  image: sampleImage,
+  thumbnail: sampleFile,
   writer: sampleUser,
 };
 
@@ -84,8 +88,10 @@ const sampleOrder: Order = {
   post: sampleSimplePost,
   requester: sampleUser,
   responder: sampleUser,
+  requestMessage: "어버이날 커스텀 케이크 신청합니다",
+  images: [sampleFile],
   price: 10000,
-  date: sampleDate,
+  date: [sampleDate],
   status: sampleStatus,
   isRequest: true,
 };
@@ -95,7 +101,6 @@ const sampleSimpleOrder: SimpleOrder = {
   post: sampleSimplePost,
   requester: sampleUser,
   responder: sampleUser,
-  isRequest: true,
 };
 
 const sampleOrders: Order[] = [sampleOrder, sampleOrder, sampleOrder];
@@ -122,12 +127,16 @@ const sampleChat: Chat = {
 
 const date = new Date();
 
-const samplePropose: Propose = {
-  sender: sampleUser,
-  receiver: sampleUser2,
+const sampleProposal: Proposal = {
+  proposalId: 1,
   order: sampleSimpleOrder,
-  date: sampleDate,
+  sender: sampleUser,
   price: 80000,
+  date: sampleDate,
+  message:
+    "커스텀 케이크에 사용된 분홍, 주황, 노랑 크림 추가에 따른 추가 금액이 발생합니다.",
+  images: [sampleFile],
+  status: "WAITING",
 };
 
 const sampleOrderNotification: OrderNotification = {
@@ -136,9 +145,9 @@ const sampleOrderNotification: OrderNotification = {
   time: date,
 };
 
-const sampleProposeNotification: ProposeNotification = {
+const sampleProposalNotification: ProposeNotification = {
   type: "propose",
-  propose: samplePropose,
+  propose: sampleProposal,
   time: date,
 };
 
@@ -156,7 +165,7 @@ const sampleChatNotification: ChatNotification = {
 
 const sampleNotifications = [
   sampleOrderNotification,
-  sampleProposeNotification,
+  sampleProposalNotification,
   sampleReviewNotification,
   sampleChatNotification,
 ];
