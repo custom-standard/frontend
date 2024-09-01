@@ -2,7 +2,7 @@ import { Chat } from "./Chat";
 import { Order } from "./Order";
 import { OrderStatus } from "./OrderStatus";
 import { Post } from "./Post";
-import { Propose } from "./Propose";
+import { Proposal } from "./Proposal";
 import { Review } from "./Review";
 import { User } from "./User";
 
@@ -14,7 +14,7 @@ export interface OrderNotification {
 
 export interface ProposeNotification {
   type: "propose";
-  propose: Propose;
+  propose: Proposal;
   time: Date;
 }
 

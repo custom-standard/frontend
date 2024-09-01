@@ -1,5 +1,6 @@
 import { Category } from "./Category";
 import { DateTime } from "./DateTime";
+import { File } from "./File";
 import { User } from "./User";
 
 export interface Post {
@@ -7,7 +8,7 @@ export interface Post {
   category: Category;
   type: string;
   title: string;
-  image?: string[];
+  thumbnail?: File;
   dates: DateTime[];
   delivery: boolean;
   place?: string;
@@ -18,9 +19,24 @@ export interface Post {
 
 export interface SimplePost {
   postId: number;
+  type: string;
+  category: Category;
+  title: string;
+  thumbnail?: File;
+  writer: User;
+}
+
+export interface DetailPost {
+  postId: number;
   category: Category;
   type: string;
   title: string;
-  image?: string;
+  description: string;
+  image?: File[];
+  dates: DateTime[];
+  delivery: boolean;
+  place?: string;
+  minPrice: number;
+  maxPrice: number;
   writer: User;
 }
