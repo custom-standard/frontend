@@ -30,11 +30,11 @@ export default function NotificationMenuItem({ notification }: Props) {
   let thumbnail: string | undefined;
 
   if (notification.type === "order") {
-    thumbnail = notification.order.post.image;
+    thumbnail = notification.order.post.thumbnail?.fileUrl;
   } else if (notification.type === "propose") {
-    thumbnail = notification.propose.order.post.image;
+    thumbnail = notification.propose.order.post.thumbnail?.fileUrl;
   } else if (notification.type === "review") {
-    thumbnail = notification.review.order.post.image;
+    thumbnail = notification.review.order.post.thumbnail?.fileUrl;
   }
 
   return (

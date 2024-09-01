@@ -1,19 +1,19 @@
 import React from "react";
-import { User, UserArtist } from "../../types/User";
+import { User } from "../../types/User";
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import Profile from "../user/Profile";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
-  user: UserArtist;
+  user: User;
 }
 
 export default function ArtistCard({ user }: Props) {
   const navigate = useNavigate();
 
   const onClickButton = () => {
-    navigate(`${user.uuid}/works`);
+    navigate(`${user.userUUID}/works`);
   };
 
   return (
@@ -31,7 +31,7 @@ export default function ArtistCard({ user }: Props) {
             WebkitLineClamp: 4,
           }}
         >
-          {user.description}
+          {/* {user.description} */}
         </div>
       </CardContent>
       <CardFooter>

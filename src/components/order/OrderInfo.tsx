@@ -8,6 +8,7 @@ import {
   FaWonSign,
 } from "react-icons/fa";
 import { DateTime } from "../../types/DateTime";
+import { toFormattedDate } from "../../utils/dateUtils";
 
 interface Props {
   order: Order;
@@ -18,28 +19,17 @@ export default function OrderInfo({ order }: Props) {
   const textColor = "#000000";
 
   const now = new Date();
-  const daysLeft = Math.ceil(
-    (order.date.date.getTime() - now.getTime()) / (1000 * 3600 * 24) - 1
-  );
+
+  const fixedDate = order.date.length === 1 ? order.date[0] : undefined;
+  const daysLeft = fixedDate
+    ? Math.ceil(
+        (fixedDate.date.getTime() - now.getTime()) / (1000 * 3600 * 24) - 1
+      )
+    : undefined;
 
   // TODO: 이벤트 작성
   const onClickPost = () => {};
   const onClickProfile = () => {};
-
-  const toFormattedDate = (dateTime: DateTime) => {
-    const date = dateTime.date;
-    const time = dateTime.time;
-    const year =
-      now.getFullYear() === date.getFullYear()
-        ? ""
-        : `${date.getFullYear()}년 `;
-    const month = `${date.getMonth() + 1}월 `;
-    const day = `${date.getDate()}일 `;
-    const hours = time.getHours();
-    const minute = time.getMinutes().toString().padStart(2, "0");
-
-    return `${year} ${month} ${day} ${hours}:${minute}`;
-  };
 
   return (
     <div className="flex flex-col gap-2 text-md">
@@ -71,12 +61,14 @@ export default function OrderInfo({ order }: Props) {
           iconColor={iconColor}
           textColor={textColor}
           icon={<FaRegCalendarAlt />}
-          textBold={toFormattedDate(order.date)}
+          textBold={fixedDate ? toFormattedDate(fixedDate.date) : "일정 조정중"}
           event={onClickPost}
         />
-        <div className="bg-[#CE4D4D] text-white text-xs px-2 py-1 rounded-[6px] whitespace-nowrap h-6">
-          {daysLeft >= 0 ? `${daysLeft}일 남음` : `기간 지남`}
-        </div>
+        {daysLeft && (
+          <div className="bg-[#CE4D4D] text-white text-xs px-2 py-1 rounded-[6px] whitespace-nowrap h-6">
+            {daysLeft >= 0 ? `${daysLeft}일 남음` : `기간 지남`}
+          </div>
+        )}
       </div>
     </div>
   );

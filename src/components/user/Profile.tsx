@@ -1,11 +1,11 @@
 import React from "react";
-import { BaseUser } from "../../types/User";
+import { User } from "../../types/User";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
   size: "sm" | "md" | "lg";
-  user: BaseUser;
+  user: User;
   link: boolean;
 }
 
@@ -19,7 +19,7 @@ export default function Profile({ size, user, link }: Props) {
   };
 
   const onClickProfile = () => {
-    link && navigate(`${user.uuid}`);
+    link && navigate(`${user.userUUID}`);
   };
 
   return (
