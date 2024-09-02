@@ -189,6 +189,7 @@ export {
   sampleOrders,
   sampleReview,
   sampleChat,
+  sampleProposal,
   sampleNotifications,
   sampleDates,
 };
