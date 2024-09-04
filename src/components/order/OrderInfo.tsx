@@ -8,7 +8,7 @@ import {
   FaWonSign,
 } from "react-icons/fa";
 import { DateTime } from "../../types/DateTime";
-import { toFormattedDate } from "../../utils/dateUtils";
+import { toFormattedDateAgo } from "../../utils/dateUtils";
 
 interface Props {
   order: Order;
@@ -61,7 +61,9 @@ export default function OrderInfo({ order }: Props) {
           iconColor={iconColor}
           textColor={textColor}
           icon={<FaRegCalendarAlt />}
-          textBold={fixedDate ? toFormattedDate(fixedDate.date) : "일정 조정중"}
+          textBold={
+            fixedDate ? toFormattedDateAgo(fixedDate.date) : "일정 조정중"
+          }
           event={onClickPost}
         />
         {daysLeft && (

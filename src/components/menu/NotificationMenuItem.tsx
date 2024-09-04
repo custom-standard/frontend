@@ -1,6 +1,6 @@
 import React from "react";
 import { Notification } from "../../types/Notification";
-import { toFormattedDate } from "../../utils/dateUtils";
+import { toFormattedDateAgo } from "../../utils/dateUtils";
 import CustomAvatar from "../user/CustomAvatar";
 
 interface Props {
@@ -96,7 +96,7 @@ export default function NotificationMenuItem({ notification }: Props) {
         </div>
       )}
       <p className="ml-auto text-xs text-black/40 transition-all">
-        {toFormattedDate(notification.time)}
+        {toFormattedDateAgo(notification.time)}
       </p>
     </div>
   );
