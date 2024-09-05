@@ -99,6 +99,7 @@ const sampleOrder: Order = {
 const sampleSimpleOrder: SimpleOrder = {
   orderId: 1,
   post: sampleSimplePost,
+  price: 80000,
   requester: sampleUser,
   responder: sampleUser,
 };
@@ -131,12 +132,12 @@ const sampleProposal: Proposal = {
   proposalId: 1,
   order: sampleSimpleOrder,
   sender: sampleUser,
-  price: 80000,
+  price: 87000,
   date: sampleDate,
   message:
     "커스텀 케이크에 사용된 분홍, 주황, 노랑 크림 추가에 따른 추가 금액이 발생합니다.",
   images: [sampleFile],
-  status: "WAITING",
+  status: "REJECTED",
 };
 
 const sampleOrderNotification: OrderNotification = {

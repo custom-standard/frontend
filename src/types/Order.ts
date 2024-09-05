@@ -21,6 +21,7 @@ export interface Order {
 export interface SimpleOrder {
   orderId: number;
   post: SimplePost;
+  price: number;
   requester: User;
   responder: User;
 }
