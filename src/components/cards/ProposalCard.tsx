@@ -2,7 +2,6 @@ import React from "react";
 import { Proposal } from "../../types/Proposal";
 import { toFormattedDate, toFormattedDateAgo } from "../../utils/dateUtils";
 import { sampleUser } from "../../sampleData";
-import { Button } from "../ui/button";
 import { FaRegWindowMaximize, FaWonSign } from "react-icons/fa";
 
 interface Props {
@@ -23,61 +22,52 @@ export default function ProposalCard({ proposal }: Props) {
     REJECTED: "border",
   };
 
-  const cardColor = isSameUser
-    ? "bg-neutral-100"
-    : "border border-yellow-500/75";
+  const cardColor = isSameUser ? "bg-neutral-100" : "bg-amber-100/40";
 
   return (
     <div
-      className={`flex flex-col gap-2 ${cardColor} ${cardOutline} py-2 px-4 rounded-[6%] w-[240px]`}
+      className={`flex flex-col gap-4 ${cardColor} ${cardOutline} py-2 px-4 rounded-[10px] w-[400px] border border-amber-900/10`}
     >
-      {
-        proposal.images.length !== 0 && <div></div>
-        // image slider
-      }
-      <p>{proposal.message}</p>
-      <div className="flex flex-col py-1 px-2">
-        <div className="flex items-center gap-2">
-          <FaWonSign />
-          <p className="font-semibold">제안 가격</p>
-        </div>
-        <div className="flex justify-between">
-          <p>{proposal.price}원</p>
-          <p
-            className={`${
-              priceDiff === 0
-                ? `text-gray-400`
-                : priceDiff > 0
-                ? `text-red-600`
-                : `text-green-600`
-            } font-semibold`}
-          >
-            {priceDiffStr}
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col py-1 px-2">
-        <div className="flex items-center gap-2">
-          <FaRegWindowMaximize />
-          <p>{toFormattedDate(proposal.date.date, proposal.date.time)}</p>
+      <div className="flex flex-col gap-2">
+        {
+          proposal.images.length !== 0 && <div></div>
+          // image slider
+        }
+        <p>{proposal.message}</p>
+        <div className="flex gap-4 justify-between">
+          <div className="grow flex items-center gap-2">
+            <FaWonSign />
+            <p>{proposal.price}원</p>
+            <p
+              className={`${
+                priceDiff === 0
+                  ? `text-gray-400`
+                  : priceDiff > 0
+                  ? `text-red-600`
+                  : `text-green-600`
+              } font-semibold`}
+            >
+              {priceDiffStr}
+            </p>
+          </div>
+          <div className="grow flex items-center gap-2">
+            <FaRegWindowMaximize />
+            <p>{toFormattedDate(proposal.date.date, proposal.date.time)}</p>
+          </div>
         </div>
       </div>
-      {!isSameUser && (
-        <div className="flex justify-between gap-3 pb-2">
-          <Button
-            className="rounded-[10%] grow bg-amber-200 hover:bg-amber-300"
-            variant="destructive"
-          >
-            수락
-          </Button>
-          <Button
-            className="rounded-[10%] grow border border-red-100"
-            variant="secondary"
-          >
-            거절
-          </Button>
-        </div>
-      )}
+      <div className="ml-auto">
+        {!isSameUser && (
+          <div className="flex justify-between gap-2 pb-2">
+            <button className="w-[4em] h-[2em] text-sm font-[500] rounded-[10%] bg-amber-200 hover:bg-amber-300 transition-all">
+              수락
+            </button>
+            <button className="w-[4em] h-[2em] text-sm font-[500] rounded-[10%] border border-amber-400 bg-white hover:bg-amber-300 transition-all">
+              거절
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
