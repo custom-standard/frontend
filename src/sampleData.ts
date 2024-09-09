@@ -24,6 +24,22 @@ const sampleFile = {
   fileType: "png",
 };
 
+const sampleFile2 = {
+  fileUrl:
+    "https://cdn.metavv.com/prod/uploads/thumbnail/images/10043263/167100535142741_md.png",
+  fileName: "깜짝고양이",
+  fileType: "png",
+};
+
+const sampleFile3 = {
+  fileUrl:
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7G2A06efmdgIz72m8WoJdsiCk86eFxKHl7w&s",
+  fileName: "피곤고양이",
+  fileType: "png",
+};
+
+const sampleImages = [sampleFile, sampleFile2, sampleFile3];
+
 const sampleUser: User = {
   userUUID: "TEST UUID",
   email: "test@email.com",
@@ -193,4 +209,5 @@ export {
   sampleProposal,
   sampleNotifications,
   sampleDates,
+  sampleImages,
 };
