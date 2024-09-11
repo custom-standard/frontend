@@ -21,9 +21,11 @@ export default function ImageSlider({ images }: Props) {
   };
 
   return (
-    <div className={`absolute w-${size}px h-${size}px`}>
+    <div
+      className={`relative w-${size}px h-${size}px flex items-center justify-center`}
+    >
       <button
-        className="absolute left-1 top-1/2 transform -translate-y-1/2 z-1 text-white"
+        className="relative left-4 top-1/2 text-white z-10"
         onClick={onClickPrev}
       >
         <GrPrevious />
@@ -31,10 +33,10 @@ export default function ImageSlider({ images }: Props) {
       <img
         src={images[imageIndex].fileUrl}
         alt={images[imageIndex].fileName}
-        className="w-[120px] h-[120px] object-cover rounded-[6px]"
+        className={`w-[${size}px] h-[${size}px] object-cover rounded-[6px]`}
       />
       <button
-        className="absolute right-1 top-1/2 transform -translate-y-1/2 z-1 text-white "
+        className="relative right-4 top-1/2 text-white z-10"
         onClick={onClickNext}
       >
         <GrNext />
