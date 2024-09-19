@@ -10,11 +10,12 @@ export const api = axios.create({
 
 export const authApi = () => {
   const accessToken = localStorage.getItem("accessToken");
-  const headers = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
 
-  return api({
+  return axios.create({
+    ...api.defaults,
     headers: {
-      ...headers,
+      ...api.defaults.headers,
+      Authorization: accessToken ? `Bearer ${accessToken}` : "",
     },
   });
 };
