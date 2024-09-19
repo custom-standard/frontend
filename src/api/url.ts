@@ -12,7 +12,7 @@ export const ENDPOINT = {
   ORDER: ORDER_URL,
   ORDER_DETAIL: (id: number) => `${ORDER_URL}/${id}`,
   ORDER_ALL: `${ORDER_URL}/orders`,
-  ORDER_COMFIRM: `${ORDER_URL}/confirm`,
+  ORDER_CONFIRM: `${ORDER_URL}/confirm`,
   ORDER_UPDATE_STATUS: `${ORDER_URL}/update/status`,
   ORDER_UPDATE_DATA: `${ORDER_URL}/update/data`,
 
