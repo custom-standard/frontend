@@ -1,8 +1,13 @@
 import { Category } from "./Category";
 import { DateTime } from "./DateTime";
 import { File } from "./File";
-import { PostType } from "./PostType";
+// import { PostType } from "./PostType";
 import { User } from "./User";
+
+export enum PostType {
+  PURCHASE,
+  SALE,
+}
 
 export interface Post {
   postId: number;

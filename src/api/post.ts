@@ -2,7 +2,6 @@ import { api } from ".";
 import { DetailPost } from "../types/Post";
 import { PostUpdateRequest } from "../types/Post";
 import { Post, PostReadRequest } from "../types/Post";
-import { PostType } from "../types/PostType";
 import { ENDPOINT } from "./url";
 import { BASE_URL } from "./url";
 
