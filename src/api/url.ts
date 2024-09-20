@@ -18,7 +18,7 @@ export const ENDPOINT = {
 
   PROPOSAL: PROPOSAL_URL,
   PROPOSAL_ALL: `${PROPOSAL_URL}/proposals`,
-  PROPOSAL_PROCESS: `${PROPOSAL_URL}/process`,
+  PROPOSAL_CONFIRM: `${PROPOSAL_URL}/confirm`,
 
   CATEGORY: `category/categories`,
 };
