@@ -21,8 +21,25 @@ export const confirmProposal = async (
   return response.data.data as Proposal;
 };
 
-export const createProposal = async (data: ProposalCreateRequest) => {
-  const response = await authApi().post(BASE_URL + ENDPOINT.PROPOSAL, data);
+export const createProposal = async (
+  data: ProposalCreateRequest,
+  files: File[]
+) => {
+  const formData = new FormData();
+  formData.append("request", new Blob([JSON.stringify(data)]));
+
+  files.forEach((file) => {
+    formData.append("files", file);
+  });
+
+  const response = await authApi().post(
+    BASE_URL + ENDPOINT.PROPOSAL,
+    formData,
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    }
+  );
+
   return response.data.data as Proposal;
 };
 

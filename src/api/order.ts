@@ -20,8 +20,18 @@ export const readOrderAll = async (data: OrderReadRequest) => {
   return response.data.data as Order[];
 };
 
-export const createOrder = async (data: OrderCreateRequest) => {
-  const response = await authApi().post(BASE_URL + ENDPOINT.ORDER, data);
+export const createOrder = async (data: OrderCreateRequest, files: File[]) => {
+  const formData = new FormData();
+  formData.append("request", new Blob([JSON.stringify(data)]));
+
+  files.forEach((file) => {
+    formData.append("files", file);
+  });
+
+  const response = await authApi().post(BASE_URL + ENDPOINT.ORDER, formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
+
   return response.data.data as Order;
 };
 
