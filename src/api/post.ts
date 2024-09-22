@@ -5,8 +5,6 @@ import { Post, PostReadRequest } from "../types/Post";
 import { ENDPOINT } from "./url";
 import { BASE_URL } from "./url";
 
-const SIZE = 10;
-
 export const readPostAll = async (data: PostReadRequest) => {
   const response = await authApi().post(BASE_URL + ENDPOINT.POST_ALL, data);
   return response.data.data as Post;
