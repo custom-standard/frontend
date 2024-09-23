@@ -3,6 +3,11 @@ import { DateTime } from "./DateTime";
 import { File } from "./File";
 import { User } from "./User";
 
+export enum PostType {
+  PURCHASE,
+  SALE,
+}
+
 export interface Post {
   postId: number;
   category: Category;
@@ -39,4 +44,39 @@ export interface DetailPost {
   minPrice: number;
   maxPrice: number;
   writer: User;
+}
+
+export interface PostCreateRequest {
+  type: PostType;
+  categoryId: number;
+  title: string;
+  description: string;
+  dates: DateTime[];
+  delivery: boolean;
+  place?: string;
+  minPrice: number;
+  maxPrice: number;
+  productId?: number;
+}
+
+export interface PostReadRequest {
+  page: number;
+  size: number;
+  type: PostType;
+  categoryId?: number;
+  date?: Date;
+  minPrice?: number;
+  maxPrice?: number;
+}
+
+export interface PostUpdateRequest {
+  postId: number;
+  categoryId: number;
+  title: string;
+  description: string;
+  dates: DateTime[];
+  delivery: boolean;
+  place?: string;
+  minPrice: number;
+  maxPrice: number;
 }

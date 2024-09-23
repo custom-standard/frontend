@@ -13,3 +13,10 @@ export interface Proposal {
   images: File[];
   status: string;
 }
+
+export interface ProposalCreateRequest {
+  orderId: number;
+  price: number;
+  date: DateTime;
+  message: string;
+}

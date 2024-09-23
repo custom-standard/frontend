@@ -1,8 +1,17 @@
 import { DateTime } from "./DateTime";
 import { File } from "./File";
-import { OrderStatus } from "./OrderStatus";
 import { Post, SimplePost } from "./Post";
 import { User } from "./User";
+
+export enum OrderPosition {
+  CLIENT,
+  CREATOR,
+}
+
+export interface OrderStatus {
+  index: number;
+  description: string;
+}
 
 export interface Order {
   orderId: number;
@@ -24,4 +33,29 @@ export interface SimpleOrder {
   price: number;
   requester: User;
   responder: User;
+}
+
+export interface OrderCreateRequest {
+  postId: number;
+  requestMessage: string;
+  price: number;
+  dates: DateTime[];
+}
+
+export interface OrderReadRequest {
+  page: number;
+  size: number;
+  postId?: number;
+  position: OrderPosition;
+  status: OrderStatus;
+}
+
+export interface OrderUpdateStatusRequest {
+  orderId: number;
+  forward: boolean;
+}
+
+export interface OrderUpdateDataRequest {
+  orderId: number;
+  proposeId: number;
 }
