@@ -1,4 +1,4 @@
-export const BASE_URL = process.env.DEV_API_URL;
+export const BASE_URL = process.env.REACT_APP_DEV_API_URL;
 
 const POST_URL = "/post";
 const ORDER_URL = "/order";
@@ -20,5 +20,5 @@ export const ENDPOINT = {
   PROPOSAL_ALL: `${PROPOSAL_URL}/proposals`,
   PROPOSAL_CONFIRM: `${PROPOSAL_URL}/confirm`,
 
-  CATEGORY: `category`,
+  CATEGORY: `/category`,
 };
