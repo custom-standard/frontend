@@ -7,7 +7,7 @@ import { BASE_URL } from "./url";
 
 export const readPostAll = async (data: PostReadRequest) => {
   const response = await authApi().post(BASE_URL + ENDPOINT.POST_ALL, data);
-  return response.data.data as Post;
+  return response.data.data as Post[];
 };
 
 export const readPostDetail = async () => {};

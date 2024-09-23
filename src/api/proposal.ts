@@ -6,7 +6,7 @@ export const readProposalAll = async (orderId: number) => {
   const response = await authApi().get(
     BASE_URL + ENDPOINT.PROPOSAL_ALL + `?orderId=${orderId}`
   );
-  return response.data.data as Proposal;
+  return response.data.data as Proposal[];
 };
 
 export const confirmProposal = async (
