@@ -12,3 +12,6 @@ export const orderStatusSlice = createSlice({
     },
   },
 });
+
+export const { setOrderStatus } = orderStatusSlice.actions;
+export default orderStatusSlice.reducer;
